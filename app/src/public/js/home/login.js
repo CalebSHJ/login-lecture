@@ -1,6 +1,6 @@
 "use strict";
 
-const { post } = require('../../../routes/home');
+
 
 const id = document.querySelector("#id"),
   password = document.querySelector("#password"),
@@ -15,9 +15,9 @@ loginBtn.addEventListener("click", function login(){
   console.log(JSON.stringify(req))
   //data deliver to backend
   fetch("/login", {
-    method: "POST",
+    method: "POST", 
     headers: {
-      "content-Type": "application/json",
+      "content-Type": "application/json"
     },
     body: JSON.stringify(req) //꼭 JSON 형태로 전달
   });

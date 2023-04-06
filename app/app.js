@@ -12,19 +12,36 @@
 // app.listen(4001, () => {
 //   console.log("server through http")
 // })
+
+
 "use strict"
+
+// *** backend files connection map ***
+//src/routes/home/home.ctrl.js => src/routes/hoem/index.js => app/app.js => .bin/www.js
+
+
 //modules
 const express = require('express');
+const bodyParser = require('body-parser'); 
 const app = express();
 
 //routing
-const home = require("./src/routes/home")
+const home = require("./src/routes/home") // get, post, put, delete 방식으로 data를 처리하는 folder
 
 //app setting
-app.set("views", "./src/views");
-app.set("view engine", "ejs");
+app.set("views", "./src/views"); // html을 브라우저에 출력
+app.set("view engine", "ejs"); //ejs file을 사용함. html을 사용해도 같음
+
+
+app.use(express.static(`${__dirname}/src/public`)); //views 폴더안에 있는 html이 public 폴더안의 js 파일 혹은 css 파일과 연결되기 위해 반드시 필요.
+
+app.use(bodyParser.json()); //Frontend에서 post로 보낸 data를 parsing하기위해 반드시 필요함.
+//URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 못하는 문제 해결
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use("/", home); //middleware를 등록하는 method
-app.use(express.static(`${__dirname}/src/public`));
 
-module.exports = app;
+module.exports = app; // ./bin/www.js에서 port를 통해서 서버를 start하는 하기 위해 
+
+// *** backend files connection map ***
+//src/routes/home/home.ctrl.js => src/routes/hoem/index.js => app/app.js => .bin/www.js
