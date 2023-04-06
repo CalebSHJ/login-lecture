@@ -2,8 +2,8 @@
 
 const id = document.querySelector("#id"),
   password = document.querySelector("#password"),
-  loginBtn = document.querySelector("#loginBtn"),
-  loginMeg = document.querySelector("#login-meg");
+  loginBtn = document.querySelector("#loginBtn");
+  // loginMeg = document.querySelector("#login-meg");
 
 loginBtn.addEventListener("click", function login(){
   const req = {
@@ -20,9 +20,9 @@ loginBtn.addEventListener("click", function login(){
     },
     body: JSON.stringify(req) //꼭 JSON 형태로 전달
   }).then((res) => res.json()).then((res) => {
-    const meg = res.meg;
-    console.log(res.meg);
-    loginMeg.innerHTML = meg;
+    // const meg = res.meg;
+    // console.log(res.meg);
+    // loginMeg.innerHTML = meg;
 
     if(res.success) {
       location.href = "/";
