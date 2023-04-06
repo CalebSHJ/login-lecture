@@ -25,12 +25,12 @@ loginBtn.addEventListener("click", function login(){
     const meg = res.meg;
     console.log(res.meg);
     loginMeg.innerHTML = meg;
-    setTimeout(2000)
+
     if(res.success) {
       location.href = "/";
     }else {
       alert(res.meg);
     }
-  }).catch((err) => console.error(new Error("Error occured during logging in")));
+  }).catch((err) => {console.error(new Error("Error occured during logging in"))});
 });
 
