@@ -16,6 +16,9 @@ const output = {
   login: (req, res) => {
     res.render("home/login")
   },  
+  register: (req, res) => {
+    res.render("home/register")
+  },
 }
 
 //post로 frontend에서 보낸 data를 process

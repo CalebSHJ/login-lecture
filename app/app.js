@@ -17,7 +17,7 @@
 "use strict"
 
 // *** backend files connection map ***
-//src/routes/home/home.ctrl.js => src/routes/hoem/index.js => app/app.js => .bin/www.js
+//src/routes/home/home.ctrl.js => src/routes/home/index.js => app/app.js => .bin/www.js
 
 
 //modules
