@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 const id = document.querySelector("#id"),
   password = document.querySelector("#password"),
   loginBtn = document.querySelector("#loginBtn"),
@@ -12,8 +10,8 @@ loginBtn.addEventListener("click", function login(){
     id: id.value,
     password: password.value,
   };
-  console.log(req)
-  console.log(JSON.stringify(req))
+  // console.log(req)
+  // console.log(JSON.stringify(req))
   //data deliver to backend
   fetch("/login", {
     method: "POST", 

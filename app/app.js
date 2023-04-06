@@ -32,12 +32,12 @@ const home = require("./src/routes/home") // get, post, put, delete 방식으로
 app.set("views", "./src/views"); // html을 브라우저에 출력
 app.set("view engine", "ejs"); //ejs file을 사용함. html을 사용해도 같음
 
-
+//use를 사용하는 것은 middleware이다
 app.use(express.static(`${__dirname}/src/public`)); //views 폴더안에 있는 html이 public 폴더안의 js 파일 혹은 css 파일과 연결되기 위해 반드시 필요.
 
 app.use(bodyParser.json()); //Frontend에서 post로 보낸 data를 parsing하기위해 반드시 필요함.
-//URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 못하는 문제 해결
-app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(bodyParser.urlencoded({ extended: true }))//URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 못하는 문제 해결
 
 app.use("/", home); //middleware를 등록하는 method
 
