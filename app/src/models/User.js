@@ -11,12 +11,12 @@ class User {
   }
 
   login() {
-    const body = this.body;
-    const { id, password } = UserStorage.getUserInfo(body.id);//UserStorage에서 받은 data.
+    const client = this.body;
+    const { id, password } = UserStorage.getUserInfo(client.id);//UserStorage에서 받은 data.
     // console.log(id, password);
     //두 data를 비교함.
     if(id) {
-      if(id === body.id && password === body.password) {
+      if(id === client.id && password === client.password) {
         return { 
           success: true, 
           meg: "successfully logged in",
@@ -25,6 +25,12 @@ class User {
       return {success: false, meg: "Wrong password"}
     }
     return { success: false, meg: "no id exist"}
+  }
+
+  register(){
+    const client = this.body;
+    const response = UserStorage.save(client);
+    return response;
   }
 }
 

@@ -10,6 +10,7 @@ class UserStorage {
     names: ["Caleb", "Moon", "Calmoon"],
   } // id, password, names 같은 key를 field라고 부른다.
   // Data는 항상 function을 통해서 은닉하게 전달되도록 해야한다. 
+  // Data는 항상 따로 file로 저장되도록 해야한다. 
   static getUsers(...fields) {
     const users = this.#users;
     const newUsers = fields.reduce((newUsers, field) => {
@@ -32,6 +33,17 @@ class UserStorage {
  
     return userInfo;
    
+  }
+  //UserStorage에 user data를 저장해야하기 위한 method
+  static save(userInfo) {
+    const users = this.#users;
+    users.id.push(userInfo.id);
+    users.password.push(userInfo.password);
+    users.names.push(userInfo.names);
+    return { success: true };
+    // console.log(users);
+    //이것은 서버를 restart하면 data가 사라지는 logic이다. 
+    //그래서 data가 따로 file에 저장되도록 해야한다. 
   }
 }
 

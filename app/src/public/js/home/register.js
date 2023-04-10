@@ -3,17 +3,19 @@
 const id = document.querySelector("#id"),
   password = document.querySelector("#password"),
   confirmPw = document.querySelector("#confirm-password"),
-  firstName = document.querySelector("#first-name"),
-  lastName = document.querySelector("#last-name"),
+  name = document.querySelector('#names'),
+  email = document.querySelector('#email'),
   registerBtn = document.querySelector("#registerBtn");
   // registerBtnMeg = document.querySelector("#registerBtn-meg");
 registerBtn.addEventListener("click", function register(){
+  if(!id.value) return alert("Fill out the register form")
+  if(password !== confirmPw) return alert("Password confirmation failed");
+  
   const req = {
     id: id.value,
     password: password.value,
-    confirmPw: confirmPw.value,
-    firstName: firstName.value,
-    lastName: lastName.value,
+    names: names.value,
+    email: email.value,
   };
   // console.log(req)
   // console.log(JSON.stringify(req))
@@ -30,7 +32,7 @@ registerBtn.addEventListener("click", function register(){
     // registerBtnMeg.innerHTML = meg;
 
     if(res.success) {
-      location.href = "/logn";
+      location.href = "/login";
     }else {
       alert(res.meg);
     }
