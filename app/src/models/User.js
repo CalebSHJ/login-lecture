@@ -10,9 +10,9 @@ class User {
     this.body = body; // frontend에서 받은 data
   }
 
-  login() {
+  async login() {
     const client = this.body;
-    const { id, password } = UserStorage.getUserInfo(client.id);//UserStorage에서 받은 data.
+    const { id, password } = await UserStorage.getUserInfo(client.id);//UserStorage에서 받은 data.
     // console.log(id, password);
     //두 data를 비교함.
     if(id) {

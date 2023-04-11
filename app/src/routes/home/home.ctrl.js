@@ -23,10 +23,10 @@ const output = {
 
 //post로 frontend에서 보낸 data를 process
 const process = {
-  login: (req, res) => {
+  login: async (req, res) => {
     //data를 ./models/User.js로 보냄.
     const user = new User(req.body) 
-    const response = user.login();
+    const response = await user.login(); //User.js에서 오는 login 함수가 await async를 사용하기 때문에 이곳에서도 await을 사용하고, 해당 함수 앞에 async를 사용한다.
     return res.json(response);
 
     
