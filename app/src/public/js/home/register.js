@@ -9,7 +9,7 @@ const id = document.querySelector("#id"),
   // registerBtnMeg = document.querySelector("#registerBtn-meg");
 registerBtn.addEventListener("click", function register(){
   if(!id.value) return alert("Fill out the register form")
-  if(password !== confirmPw) return alert("Password confirmation failed");
+  if(password.value !== confirmPw.value) return alert("Password confirmation failed");
   
   const req = {
     id: id.value,

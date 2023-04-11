@@ -1,5 +1,20 @@
- { 
-    "id": ["cnmmusic", "moonstar", "littlelight"],
-    "password": ["1234", "12345", "123456"],
-    "names": ["Caleb", "Moon", "Calmoon"]
-  } 
+{
+	"id": [
+		"cnmmusic",
+		"moonstar",
+		"littlelight",
+		"ccmjsh"
+	],
+	"password": [
+		"1234",
+		"12345",
+		"123456",
+		"ikmjk"
+	],
+	"names": [
+		"Caleb",
+		"Moon",
+		"Calmoon",
+		"calmoon"
+	]
+}
